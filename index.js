@@ -3,30 +3,39 @@ window.addEventListener("load", () => {
     let addButton = document.getElementById("todo-add");
     let todoList = document.getElementById("todos-list");
     let searchInput = document.getElementById("todo-search");
+    
+
+  
 
     addButton.addEventListener("click", () => {
         let newTodo = document.createElement("li");
         newTodo.innerHTML = inputData.value;
+        
         let deleteButton = document.createElement("button");
-
         deleteButton.innerText = "Delete"
-        // deleteButton.classList.add("delete-button");
- 
-        todoList.appendChild(deleteButton);
-        todoList.appendChild(newTodo);
+        deleteButton.classList.add("delete-button");
 
+        let checkBox = document.createElement("input");
+        checkBox.setAttribute("type","checkbox");
+        checkBox.classList.add("checkBox");
+
+        todoList.appendChild(newTodo);
+        newTodo.appendChild(checkBox);
+       
+        newTodo.appendChild(deleteButton);
+        
         inputData.value = "";
 
-        // delete button
-        // deleteButton.addEventListener("click", () => {
-        //     alert("do you realy want to delete ?");
-        // })
+        deleteButton.addEventListener("click", () => {
+            alert("Do you really want to delete it?");
+            newTodo.remove();
+            deleteButton.remove();
+        });
 
-        // also add checkbox to your todo while creating.
-        
 
     })
-    
+
+
 
     searchInput.addEventListener("keyup", () => {
 
@@ -34,13 +43,13 @@ window.addEventListener("load", () => {
 
         let todos = Array.from(todoList.children);
 
-        // todos.forEach((kubilay) => {
-        //     if(kubilay.innerText.includes(searchData)){
-        //         kubilay.style.display = "block";
-        //     }else{
-        //         kubilay.style.display = "none";
-        //     }
-        // })
+        todos.forEach((e) => {
+            if(e.innerText.includes(searchData)){
+                e.style.display = "block";
+            }else{
+                e.style.display = "none";
+            }
+        })
 
         for(let i = 0; i < todos.length; i++){
             if(todos[i].innerText.includes(searchData)){
@@ -50,4 +59,14 @@ window.addEventListener("load", () => {
             }
         }
     })
+
+    function checkFunction(){
+        let checkBox = document.getElementById("myCheck");
+        let text = document.getElementById("text");
+        if (checkBox.checked == true){
+            inputData.style.display = "block";
+        } else {
+            inputData.style.display = "none";
+        }
+      }
 })
