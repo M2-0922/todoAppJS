@@ -80,4 +80,8 @@ html, body {
   color: white;
   width: 100%;
 }
+
+.delete-button {
+  background-color: #090D11 !important;
+}
 /*# sourceMappingURL=style.css.map */

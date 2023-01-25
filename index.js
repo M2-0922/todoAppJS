@@ -10,6 +10,8 @@ window.addEventListener("load", () => {
         let deleteButton = document.createElement("button");
 
         deleteButton.innerText = "Delete"
+        // deleteButton.classList.add("delete-button");
+ 
         todoList.appendChild(deleteButton);
         todoList.appendChild(newTodo);
 
