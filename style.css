@@ -1,5 +1,6 @@
-html, body {
-  background-color: #090D11;
+html,
+body {
+  background-color: #090d11;
 }
 
 .container {
@@ -22,7 +23,7 @@ html, body {
 .container .header__search input {
   height: 24px;
   width: 100%;
-  background-color: #272B33;
+  background-color: #272b33;
   border: none;
   padding: 6px 12px;
   color: white;
@@ -40,7 +41,7 @@ html, body {
   margin-top: 12px;
   height: 24px;
   width: 100%;
-  background-color: #272B33;
+  background-color: #272b33;
   border: none;
   padding: 6px 12px;
   color: white;
@@ -57,8 +58,14 @@ html, body {
   right: -20px;
   border: none;
   border-radius: 6px;
-  background-color: #090D11;
+  background-color: #090d11;
   color: white;
+}
+.container .header__form button:hover {
+  cursor: pointer;
+  background-color: white;
+  color: black;
+  border: 1px solid black;
 }
 .container .todos {
   margin-top: 24px;
@@ -72,16 +79,33 @@ html, body {
   margin: 0;
   width: 100%;
 }
-.container .todos li {
+.container .todos #todos-list li {
   border-bottom: 1px solid black;
   list-style-type: none;
   padding: 16px 12px;
-  background-color: #272B33;
+  background-color: #272b33;
   color: white;
   width: 100%;
+  display: grid;
+  align-items: center;
+  grid-template-columns: 40px auto 80px;
+  grid-template-rows: auto;
+  grid-template-areas: "checkbox text deleteButton";
 }
-
-.delete-button {
-  background-color: #090D11 !important;
+.container .todos #todos-list li input {
+  grid-area: checkbox;
 }
-/*# sourceMappingURL=style.css.map */
+.container .todos #todos-list li .delete-button {
+  background-color: #090d11;
+  height: 30px;
+  width: 50px;
+  border-radius: 6px;
+  color: white;
+  grid-area: deleteButton;
+}
+.container .todos #todos-list li .delete-button:hover {
+  cursor: pointer;
+  background-color: white;
+  color: black;
+  border: 1px solid black;
+}/*# sourceMappingURL=style.css.map */

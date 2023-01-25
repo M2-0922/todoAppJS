@@ -3,19 +3,48 @@ window.addEventListener("load", () => {
     let addButton = document.getElementById("todo-add");
     let todoList = document.getElementById("todos-list");
     let searchInput = document.getElementById("todo-search");
+    let taskNum = 1;
 
     addButton.addEventListener("click", () => {
-        let newTodo = document.createElement("li");
-        newTodo.innerHTML = inputData.value;
-        let deleteButton = document.createElement("button");
+        if (inputData.value != "") {
+            let newTodo = document.createElement("li");
+            newTodo.innerHTML = inputData.value;
+            newTodo.id = "Task" + taskNum;
+            
+            // create delete button
+            let deleteButton = document.createElement("button");
+            deleteButton.id = "deleteButton" + taskNum;
+            deleteButton.innerText = "Delete"
+            deleteButton.classList.add("delete-button");
 
-        deleteButton.innerText = "Delete"
-        // deleteButton.classList.add("delete-button");
- 
-        todoList.appendChild(deleteButton);
-        todoList.appendChild(newTodo);
+            deleteButton.addEventListener('click', () => {
+                let deleteConfirm = confirm("Do you really want to delete ?");
+                if (deleteConfirm) {
+                    todoList.removeChild(deleteButton.parentElement);
+                }
+            })
 
-        inputData.value = "";
+            // create checkbox
+            let checkbox = document.createElement('input');
+            checkbox.type = 'checkbox';
+            checkbox.name = 'checkbox' + taskNum;
+            checkbox.id = 'checkbox' + taskNum;
+            checkbox.addEventListener('change', e => {
+                if (e.target.checked) {
+                    if (confirm("You finished the task! Do you want to delete ?")) {
+                        todoList.removeChild(checkbox.parentElement);
+                    }
+                }
+            })
+    
+            // add checkbox and delete button to the list element
+            newTodo.prepend(checkbox);
+            newTodo.appendChild(deleteButton);
+            todoList.appendChild(newTodo);
+    
+            inputData.value = "";
+            taskNum++;
+        }
 
         // delete button
         // deleteButton.addEventListener("click", () => {
@@ -23,10 +52,8 @@ window.addEventListener("load", () => {
         // })
 
         // also add checkbox to your todo while creating.
-        
 
     })
-    
 
     searchInput.addEventListener("keyup", () => {
 
@@ -44,7 +71,7 @@ window.addEventListener("load", () => {
 
         for(let i = 0; i < todos.length; i++){
             if(todos[i].innerText.includes(searchData)){
-                todos[i].style.display = "block";
+                todos[i].style.display = "grid";
             }else{
                 todos[i].style.display = "none";
             }
