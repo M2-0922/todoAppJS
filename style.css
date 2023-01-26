@@ -1,6 +1,5 @@
-html,
-body {
-  background-color: #090d11;
+html, body {
+  background-color: #090D11;
 }
 
 .container {
@@ -23,7 +22,7 @@ body {
 .container .header__search input {
   height: 24px;
   width: 100%;
-  background-color: #272b33;
+  background-color: #272B33;
   border: none;
   padding: 6px 12px;
   color: white;
@@ -41,7 +40,7 @@ body {
   margin-top: 12px;
   height: 24px;
   width: 100%;
-  background-color: #272b33;
+  background-color: #272B33;
   border: none;
   padding: 6px 12px;
   color: white;
@@ -51,7 +50,6 @@ body {
   outline: none !important;
 }
 .container .header__form button {
-  cursor: pointer;
   position: absolute;
   height: 30px;
   width: 50px;
@@ -59,7 +57,7 @@ body {
   right: -20px;
   border: none;
   border-radius: 6px;
-  background-color: #090d11;
+  background-color: #090D11;
   color: white;
 }
 .container .todos {
@@ -75,32 +73,15 @@ body {
   width: 100%;
 }
 .container .todos li {
-  position: relative;
   border-bottom: 1px solid black;
   list-style-type: none;
   padding: 16px 12px;
-  background-color: #272b33;
+  background-color: #272B33;
   color: white;
   width: 100%;
 }
 
 .delete-button {
-  position: absolute;
-  right: 3px;
-  top: 5px;
-  height: 80%;
-  background-color: #090d11;
-  border-radius: 4px;
-  color: white;
-  cursor: pointer;
-  border: none;
-  border-radius: 6px;
-  background-color: #090d11;
-  color: white;
-}
-
-.check-box {
-  position: absolute;
-  left: -25px;
+  background-color: #090D11 !important;
 }
 /*# sourceMappingURL=style.css.map */
