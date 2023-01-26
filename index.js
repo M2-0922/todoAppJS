@@ -4,26 +4,37 @@ window.addEventListener("load", () => {
     let todoList = document.getElementById("todos-list");
     let searchInput = document.getElementById("todo-search");
 
+    window.addEventListener("keyup", (e) => {
+        if(e.key === "Enter"){
+            addButton.click();
+        }
+    });
+
     addButton.addEventListener("click", () => {
+
         let newTodo = document.createElement("li");
         newTodo.innerHTML = inputData.value;
         let deleteButton = document.createElement("button");
+        let checkbox = document.createElement("input");
 
+        checkbox.type = "checkbox";
+        checkbox.classList.add("checkbox");
+        checkbox.style.margin = "0 12px 0 4px";
+        
         deleteButton.innerText = "Delete"
-        // deleteButton.classList.add("delete-button");
- 
-        todoList.appendChild(deleteButton);
+        deleteButton.classList.add("delete-button");
+        
+        newTodo.insertBefore(checkbox, newTodo.childNodes[0])
+        // todoList.appendChild(checkbox);
+        newTodo.appendChild(deleteButton);
         todoList.appendChild(newTodo);
 
         inputData.value = "";
 
-        // delete button
-        // deleteButton.addEventListener("click", () => {
-        //     alert("do you realy want to delete ?");
-        // })
-
-        // also add checkbox to your todo while creating.
-        
+        deleteButton.addEventListener("click", () => {
+            newTodo.remove();
+            deleteButton.remove();
+        })
 
     })
     
@@ -34,20 +45,14 @@ window.addEventListener("load", () => {
 
         let todos = Array.from(todoList.children);
 
-        // todos.forEach((kubilay) => {
-        //     if(kubilay.innerText.includes(searchData)){
-        //         kubilay.style.display = "block";
-        //     }else{
-        //         kubilay.style.display = "none";
-        //     }
-        // })
-
-        for(let i = 0; i < todos.length; i++){
-            if(todos[i].innerText.includes(searchData)){
-                todos[i].style.display = "block";
+        todos.forEach((kubilay) => {
+            if(kubilay.innerText.includes(searchData)){
+                kubilay.style.display = "block";
             }else{
-                todos[i].style.display = "none";
+                kubilay.style.display = "none";
             }
-        }
+        })
+
     })
+
 })
