@@ -16,6 +16,11 @@ window.addEventListener("load", () => {
         let newTodo = document.createElement("li");
         let deleteButton = document.createElement("button");
         let isCompleted = document.createElement("input");
+        let editButton = document.createElement("button");
+
+        // EditButton
+        editButton.innerHTML = "Edit";
+        editButton.classList.add("edit-button");
 
         // Checkbox
         isCompleted.type = "checkbox";
@@ -29,6 +34,7 @@ window.addEventListener("load", () => {
         newTodo.innerHTML = inputData.value;
         newTodo.appendChild(deleteButton);
         newTodo.insertBefore(isCompleted, newTodo.childNodes[0]);
+        newTodo.appendChild(editButton);
         // insertBefore takes 2 arguments, first the element that you want to add
         // second argument is the location, which node you want to put before
 
@@ -51,6 +57,42 @@ window.addEventListener("load", () => {
                 console.log("Sorry");
             }
         });
+
+        editButton.addEventListener("click", () => {
+            let editInput = document.createElement("input");
+            let saveButton = document.createElement("button");
+
+            // saveButton
+            saveButton.innerHTML = "Save";
+            saveButton.classList.add("save-button");
+
+            // editInput 
+            editInput.classList.add("edit-input");
+            editInput.value = newTodo.innerText.split("Delete")[0];
+            // ["content", "Edit"]
+
+            newTodo.innerHTML = "";
+            newTodo.appendChild(editInput);
+            newTodo.appendChild(saveButton);
+
+            saveButton.addEventListener("click", () => {
+                newTodo.innerHTML = "";
+                newTodo.appendChild(isCompleted);
+
+                newTodo.appendChild(document.createTextNode(editInput.value));
+                newTodo.appendChild(deleteButton);
+                newTodo.appendChild(editButton);
+                
+            })
+            
+            editInput.addEventListener("keyup", (e) => {
+                if(e.key === "Enter"){
+                    saveButton.click();
+                }
+            })
+
+
+        })
     })
 
     searchInput.addEventListener("keyup", () => {
