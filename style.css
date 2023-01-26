@@ -1,87 +1,101 @@
-html, body {
-  background-color: #090D11;
-}
+html,
+body {
+  background-color: #090D11; }
 
 .container {
   display: flex;
   flex-direction: column;
-  align-items: center;
-}
-.container .header {
-  width: 100%;
-}
-.container .header h1 {
-  padding: 24px;
-  color: white;
-  text-align: center;
-}
-.container .header__search {
-  width: 80%;
-  margin: 0 auto;
-}
-.container .header__search input {
-  height: 24px;
-  width: 100%;
-  background-color: #272B33;
-  border: none;
-  padding: 6px 12px;
-  color: white;
-  border-radius: 4px;
-}
-.container .header__search input:focus {
-  outline: none !important;
-}
-.container .header__form {
-  position: relative;
-  width: 80%;
-  margin: 0 auto;
-}
-.container .header__form input {
-  margin-top: 12px;
-  height: 24px;
-  width: 100%;
-  background-color: #272B33;
-  border: none;
-  padding: 6px 12px;
-  color: white;
-  border-radius: 4px;
-}
-.container .header__form input:focus {
-  outline: none !important;
-}
-.container .header__form button {
-  position: absolute;
-  height: 30px;
-  width: 50px;
-  top: 15px;
-  right: -20px;
-  border: none;
-  border-radius: 6px;
-  background-color: #090D11;
-  color: white;
-}
-.container .todos {
-  margin-top: 24px;
-  width: 80%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.container .todos #todos-list {
-  padding: 0;
-  margin: 0;
-  width: 100%;
-}
-.container .todos li {
-  border-bottom: 1px solid black;
-  list-style-type: none;
-  padding: 16px 12px;
-  background-color: #272B33;
-  color: white;
-  width: 100%;
-}
-
-.delete-button {
-  background-color: #090D11 !important;
-}
-/*# sourceMappingURL=style.css.map */
+  align-items: center; }
+  .container .header {
+    width: 100%; }
+    .container .header h1 {
+      padding: 24px;
+      color: #ffffff;
+      text-align: center; }
+    .container .header_search {
+      width: 80%;
+      margin: 0 auto; }
+      .container .header_search input {
+        height: 24px;
+        width: 100%;
+        background-color: #272B33;
+        border: none;
+        padding: 6px 12px;
+        color: #ffffff;
+        border-radius: 4px; }
+        .container .header_search input:focus {
+          outline: none; }
+    .container .header_form {
+      position: relative;
+      width: 80%;
+      margin: 0 auto; }
+      .container .header_form #todo-input {
+        margin-top: 12px;
+        height: 24px;
+        width: 100%;
+        background-color: #272B33;
+        border: none;
+        padding: 6px 12px;
+        color: #ffffff;
+        border-radius: 4px; }
+        .container .header_form #todo-input:focus {
+          outline: none; }
+      .container .header_form #todo-add {
+        position: absolute;
+        height: 30px;
+        width: 50px;
+        top: 15px;
+        right: -20px;
+        border: none;
+        border-radius: 6px;
+        background-color: #090D11;
+        color: #ffffff; }
+  .container .todos {
+    margin-top: 24px;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center; }
+    .container .todos #todo-list {
+      padding: 0;
+      margin: 0;
+      width: 100%;
+      height: 60px; }
+    .container .todos li {
+      position: relative;
+      border-bottom: 1px solid black;
+      list-style-type: none;
+      padding: 16px 12px;
+      background-color: #272B33;
+      color: #ffffff;
+      width: 100%; }
+    .container .todos #todo-delete {
+      position: absolute;
+      top: 15px;
+      right: 10px;
+      margin: 0 0 0 calc(100% - 40px);
+      height: 50px;
+      width: 80px;
+      border: none;
+      border-radius: 6px;
+      background-color: #a32121;
+      color: #ffffff; }
+    .container .todos #todo-edit {
+      height: 50px;
+      width: 80px;
+      border: none;
+      border-radius: 6px;
+      background-color: #3a7ecc;
+      color: #ffffff;
+      margin: 0 0 0 calc(100% - 200px); }
+    .container .todos #edit-input {
+      border-radius: 4px;
+      border: none;
+      outline: none;
+      background-color: #090D11;
+      color: #ffffff;
+      padding: 0 12px;
+      height: 24px;
+      width: 75%; }
+    .container .todos #todo-checkbox {
+      margin: 0 12px 0 4px; }

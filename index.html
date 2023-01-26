@@ -5,28 +5,34 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <script src="index.js"></script>
-    <title>Document</title>
+    <title>TODO APP</title>
 </head>
 <body>
     <div class="container">
+        <!-- <dialog open>
+            <p>Greetings</p>
+            <button>OK</button>
+            <button>Cancel</button>
+        </dialog> -->
+
         <div class="header">
             <h1>Todo Manager</h1>
 
-            <div class="header__search">
+            <div class="header_search">
                 <input id="todo-search" type="text" placeholder="Search">
             </div>
 
-            <div class="header__form">
-                <input id="todo-input" type="text" placeholder="Add new todo">
-                <button  id="todo-add">Add</button>
+            <div class="header_form">
+                <input id="todo-input" type="text" placeholder="New Todo">
+                <button id="todo-add">Add</button>
             </div>
         </div>
 
         <div class="todos">
-            <ul id="todos-list"></ul>
+            <ul id="todo-list"></ul>
         </div>
-
     </div>
+
+    <script type="text/javascript" src="/index.js"></script>
 </body>
 </html>
