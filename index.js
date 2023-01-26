@@ -1,61 +1,47 @@
 window.addEventListener("load", () => {
-  let inputData = document.getElementById("todo-input");
-  let addButton = document.getElementById("todo-add");
-  let todoList = document.getElementById("todos-list");
-  let searchInput = document.getElementById("todo-search");
+  const SearchInput = document.getElementById("todo-search");
+  const InputData = document.getElementById("todo-input");
+  const AddButton = document.getElementById("todo-add");
+  const TodoList = document.getElementById("todo-list");
 
-  addButton.addEventListener("click", () => {
-    let newTodo = document.createElement("li");
-    // newTodo.classList.add("li-list");
-    newTodo.innerHTML = inputData.value;
-    if (inputData.value) {
-      let deleteButton = document.createElement("button");
-      var checkbox = document.createElement("INPUT");
-      checkbox.setAttribute("type", "checkbox");
-      checkbox.classList.add("check-box");
-      //   newTodo.innerHTML = inputData.value;
+  AddButton.addEventListener("click", () => {
+    const NewTodo = document.createElement("li");
 
-      deleteButton.innerText = "Delete";
-      deleteButton.classList.add("delete-button");
+    NewTodo.innerHTML = InputData.value;
 
-      newTodo.appendChild(checkbox);
-      todoList.appendChild(newTodo);
-      newTodo.appendChild(deleteButton);
-      //   newTodo.innerHTML = inputData.value;
+    if (InputData.value) {
+      const DeleteButton = document.createElement("button");
+      const Checkbox = document.createElement("input");
 
-      inputData.value = "";
+      DeleteButton.innerText = "Delete";
+      DeleteButton.classList.add("delete-button");
+      Checkbox.setAttribute("type", "checkbox");
+      Checkbox.classList.add("check-box");
 
-      delete button;
-      deleteButton.addEventListener("click", () => {
-        alert("do you really want to delete ?");
-        newTodo.remove();
-        deleteButton.remove();
-        checkbox.remove();
+      NewTodo.appendChild(Checkbox);
+      TodoList.appendChild(NewTodo);
+      NewTodo.appendChild(DeleteButton);
+
+      DeleteButton.addEventListener("click", () => {
+        alert("Are you sure that you want to delete this todo?");
+
+        NewTodo.remove();
+        DeleteButton.remove();
+        Checkbox.remove();
       });
     }
-
-    // also add checkbox to your todo while creating.
   });
 
-  searchInput.addEventListener("keyup", () => {
-    let searchData = searchInput.value;
+  SearchInput.addEventListener("keyup", () => {
+    const SearchData = SearchInput.value;
+    const Todos = Array.from(TodoList.children);
 
-    let todos = Array.from(todoList.children);
-
-    todos.forEach((todo) => {
-      if (todo.innerText.includes(searchData)) {
+    Todos.forEach((todo) => {
+      if (todo.innerText.includes(SearchData)) {
         todo.style.display = "block";
       } else {
         todo.style.display = "none";
       }
     });
-
-    // for (let i = 0; i < todos.length; i++) {
-    //   if (todos[i].innerText.includes(searchData)) {
-    //     todos[i].style.display = "block";
-    //   } else {
-    //     todos[i].style.display = "none";
-    //   }
-    // }
   });
 });
