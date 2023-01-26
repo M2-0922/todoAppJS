@@ -1,23 +1,38 @@
-window.addEventListener("load", () => {
+let addButton = document.getElementById("todo-add");
+let inputData = document.getElementById("todo-input");
+let todoList = document.getElementById("todos-list");
+let searchInput = document.getElementById("todo-search");
 
-    let inputData = document.getElementById("todo-input");
-    let addButton = document.getElementById("todo-add");
-    let todoList = document.getElementById("todos-list");
-    let searchInput = document.getElementById("todo-search");
+window.addEventListener("load", () => {
     
     addButton.addEventListener("click", () => {
         if (inputData.value != "") {
-    
+            
             // add new todo list
             let newTodo = document.createElement("li");
             newTodo.innerHTML = inputData.value;
             todoList.appendChild(newTodo);
-        
+            
             // set checkbox
             let checkButton = document.createElement("input");
-            checkButton.type = 'checkbox';
+            checkButton.type = "checkbox";
             checkButton.classList.add("check-button");
+            checkButton.onchange = checkList; //add event handler
             newTodo.appendChild(checkButton);
+            
+            // event of checkbox
+            function checkList() {
+                let checkDone = document.getElementsByClassName("check-button");
+                for(let i = 0; i < checkDone.length; i++) {
+                    if(checkDone[i].checked) {
+                        console.log('done');
+                        checkDone[i].parentElement.style.textDecoration = "line-through";
+                    } else {
+                        console.log('not yet');
+                        checkDone[i].parentElement.style.textDecoration = "none";
+                    }
+                }
+            }
             
             // set delete button
             let deleteButton = document.createElement("button");
@@ -27,6 +42,7 @@ window.addEventListener("load", () => {
             deleteButton.classList.add("delete-button");
             newTodo.appendChild(deleteButton);
             
+
             // event of delete button
             deleteButton.addEventListener("click", (e) => {
                 e.preventDefault();
@@ -34,7 +50,7 @@ window.addEventListener("load", () => {
                     icon: 'question',
                     showCancelButton: true,
                     text: "do you realy want to delete ?",
-                    confirmButtonColor: '#090D11',
+                    confirmButtonColor: '#4b8ed9',
                     cancelButtonColor: '#d33',
                     confirmButtonText: 'OK'
                 }).then((result) => {
@@ -54,14 +70,13 @@ window.addEventListener("load", () => {
             Swal.fire({
                 icon:"warning",
                 text: "Please input something.",
-                confirmButtonColor: '#090D11',
+                confirmButtonColor: '#4b8ed9',
             });
         }
     
         inputData.value = "";
     
     })
-    
     
     searchInput.addEventListener("keyup", () => {
     
@@ -85,6 +100,6 @@ window.addEventListener("load", () => {
             }
         }
     })
-
 })
+
 

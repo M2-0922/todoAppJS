@@ -1,8 +1,10 @@
 @import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
 
-$primary_color: #090D11;
-$secondary_color: #272B33;
-$text_color: white;
+$primary_color: #161b22 ;
+$secondary_color: #21262c;
+$third_color: #30363c;
+$text_color: #f0f6fb;
+$text_sub_color: #4b8ed9;
 $font-family: 'Roboto', sans-serif;
 
 html, body{
@@ -43,8 +45,10 @@ html, body{
                 padding: 6px 12px;
                 color: $text_color;
                 border-radius: 4px;
+                outline: solid 2px $third_color;
                 &:focus{
-                    outline: none !important; 
+                    background-color: $third_color;
+                    outline: solid 2px $text_color !important;
                 }
             }
         }
@@ -63,8 +67,10 @@ html, body{
                 padding: 6px 12px;
                 color: $text_color;
                 border-radius: 4px;
+                outline: solid 2px $third_color;
                 &:focus{
-                    outline: none !important; 
+                    background-color: $third_color;
+                    outline: solid 2px $text_color !important;
                 }
             }
             button{
@@ -77,7 +83,7 @@ html, body{
                 right: 5px;
                 border: none;
                 border-radius: 6px;
-                background-color: $primary_color;
+                background-color: #238636;
                 color: $text_color;
                 cursor: pointer;
             }
@@ -85,7 +91,7 @@ html, body{
     }
     
     .todos{
-        margin-top: 24px;
+        // margin-top: 24px;
         width: 80%;
         display: flex;
         flex-direction: column;
@@ -102,11 +108,21 @@ html, body{
             list-style-type: none;
             padding: 16px 32px;
             background-color: $secondary_color;
-            color: $text_color;
+            color: $text_sub_color;
             width: 100%;
             margin-bottom: 8px;
+            &:nth-child(odd) {
+                background-color: $third_color;
+            }
         }
     }
+}
+
+.line {
+    margin: 12px 0;
+    width: 100%;
+    height: 1px;
+    background-color: $secondary_color;
 }
 
 .delete-button{
