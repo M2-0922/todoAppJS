@@ -21,14 +21,14 @@ window.addEventListener("load", () => {
 
     //Event
     todoList.appendChild(newTodo);
-    todoList.appendChild(checkbox);
-    todoList.appendChild(deleteButton);
+    newTodo.insertBefore(checkbox, newTodo.childNodes[0]);
+    newTodo.appendChild(deleteButton);
 
     inputData.value = "";
 
     //Click delete button => remove todo and button
     deleteButton.addEventListener("click", () => {
-      alert("do you realy want to delete ?");
+      confirm("do you realy want to delete ?");
 
       newTodo.remove();
       deleteButton.remove();
