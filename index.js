@@ -1,5 +1,5 @@
 window.addEventListener("load", () => {
-    
+
     let inputData = document.getElementById("todo-input");
     let addButton = document.getElementById("todo-add");
     let todoList = document.getElementById("todos-list");
@@ -21,7 +21,9 @@ window.addEventListener("load", () => {
             
             // set delete button
             let deleteButton = document.createElement("button");
-            deleteButton.innerText = "Delete"
+            // deleteButton.innerText = "Delete"
+            // deleteButton.innerHTML = `<i class="fa-solid fa-trash-can"></i>`;
+            deleteButton.innerHTML = `<i class="fa-regular fa-trash-can"></i>`;
             deleteButton.classList.add("delete-button");
             newTodo.appendChild(deleteButton);
             

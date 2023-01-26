@@ -1,3 +1,5 @@
+@import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
+
 $primary_color: #090D11;
 $secondary_color: #272B33;
 $text_color: white;
@@ -77,6 +79,7 @@ html, body{
                 border-radius: 6px;
                 background-color: $primary_color;
                 color: $text_color;
+                cursor: pointer;
             }
         }
     }
@@ -109,13 +112,14 @@ html, body{
 .delete-button{
     position: absolute;
     height: 30px;
-    width: 70px;
+    width: 30px;
     top: 10px;
     right: 10px;
     border: none;
     border-radius: 6px;
     background-color: $primary_color;
     color: $text_color;
+    cursor: pointer;
 }
 
 .check-button{
