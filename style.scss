@@ -1,27 +1,31 @@
 $primary_color: #090D11;
 $secondary_color: #272B33;
 $text_color: white;
-html, body{
+
+html,
+body {
     background-color: $primary_color;
 }
 
-.container{
+.container {
     display: flex;
     flex-direction: column;
     align-items: center;
 
-    .header{
+    .header {
         width: 100%;
-        h1{
+
+        h1 {
             padding: 24px;
             color: $text_color;
             text-align: center;
         }
 
-        &__search{
+        &__search {
             width: 80%;
             margin: 0 auto;
-            input{
+
+            input {
                 height: 24px;
                 width: 100%;
                 background-color: $secondary_color;
@@ -29,17 +33,19 @@ html, body{
                 padding: 6px 12px;
                 color: $text_color;
                 border-radius: 4px;
-                &:focus{
-                    outline: none !important; 
+
+                &:focus {
+                    outline: none !important;
                 }
             }
         }
 
-        &__form{
+        &__form {
             position: relative;
             width: 80%;
             margin: 0 auto;
-            input{
+
+            input {
                 margin-top: 12px;
                 height: 24px;
                 width: 100%;
@@ -48,11 +54,13 @@ html, body{
                 padding: 6px 12px;
                 color: $text_color;
                 border-radius: 4px;
-                &:focus{
-                    outline: none !important; 
+
+                &:focus {
+                    outline: none !important;
                 }
             }
-            button{
+
+            button {
                 position: absolute;
                 height: 30px;
                 width: 50px;
@@ -66,19 +74,23 @@ html, body{
         }
     }
 
-    .todos{
+    .todos {
         margin-top: 24px;
         width: 80%;
         display: flex;
         flex-direction: column;
+
         // justify-content: center;
-        #todos-list{
+        #todos-list {
             padding: 0;
             margin: 0;
             width: 100%;
         }
+
         align-items: center;
-        li{
+
+        li {
+            position: relative;
             border-bottom: 1px solid black;
             list-style-type: none;
             padding: 16px 12px;
@@ -89,6 +101,15 @@ html, body{
     }
 }
 
-.delete-button{
-    background-color: #090D11 !important;
+.delete-button {
+    position: absolute;
+    top: 10px;
+    right: 6px;
+    height: 30px;
+    border-radius: 4px;
+    background-color: $primary_color;
+    color: $text_color;
+    border: none;
+    padding: 0 12px;
+
 }

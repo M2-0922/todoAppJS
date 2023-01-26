@@ -10,23 +10,33 @@ window.addEventListener("load", () => {
         let deleteButton = document.createElement("button");
 
         deleteButton.innerText = "Delete"
-        // deleteButton.classList.add("delete-button");
- 
+        deleteButton.classList.add("delete-button");
+
         todoList.appendChild(deleteButton);
         todoList.appendChild(newTodo);
 
         inputData.value = "";
 
+
+
         // delete button
-        // deleteButton.addEventListener("click", () => {
-        //     alert("do you realy want to delete ?");
-        // })
+        let valueOfNewTodo = newTodo.innerText;
+        deleteButton.addEventListener("click", () => {
+            let accept = confirm(valueOfNewTodo + " will deleted, are you sure ?");
+
+            if (accept) {
+                newTodo.remove();
+                deleteButton.remove();
+            }
+        });
 
         // also add checkbox to your todo while creating.
-        
+        let isCompleted = document.createElement("input");
+        isCompleted.type = "checkbox";
+        isCompleted.classList.add("todo-checkbox");
 
     })
-    
+
 
     searchInput.addEventListener("keyup", () => {
 
@@ -42,10 +52,10 @@ window.addEventListener("load", () => {
         //     }
         // })
 
-        for(let i = 0; i < todos.length; i++){
-            if(todos[i].innerText.includes(searchData)){
+        for (let i = 0; i < todos.length; i++) {
+            if (todos[i].innerText.includes(searchData)) {
                 todos[i].style.display = "block";
-            }else{
+            } else {
                 todos[i].style.display = "none";
             }
         }
