@@ -28,7 +28,9 @@ window.addEventListener("load", () => {
 
             if (confirm(text) == true) {
                 let deleteit = document.getElementById("todos-list");
-                deleteit.remove();
+                newTodo.remove();
+                deleteButton.remove();
+                myInput.remove();
             } else {
                 return null;
               }        })
