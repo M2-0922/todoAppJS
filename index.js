@@ -1,3 +1,5 @@
+
+
 window.addEventListener("load", () => {
     let inputData = document.getElementById("todo-input");
     let addButton = document.getElementById("todo-add");
@@ -10,20 +12,30 @@ window.addEventListener("load", () => {
         let deleteButton = document.createElement("button");
 
         deleteButton.innerText = "Delete"
-        // deleteButton.classList.add("delete-button");
+        // // deleteButton.classList.add("delete-button");
  
-        todoList.appendChild(deleteButton);
+        newTodo.appendChild(deleteButton);
         todoList.appendChild(newTodo);
-
         inputData.value = "";
+        
+        // // delete button
+        deleteButton.addEventListener("click", (event) => {
+            const liParent = event.target.parentElement;
+            todoList.removeChild(liParent);
 
-        // delete button
-        // deleteButton.addEventListener("click", () => {
-        //     alert("do you realy want to delete ?");
-        // })
+        })
+
+        
 
         // also add checkbox to your todo while creating.
         
+        var checkbox = document.createElement('input');
+             
+        
+        checkbox.type = "checkbox";
+        
+
+        newTodo.appendChild(checkbox);
 
     })
     
@@ -51,3 +63,4 @@ window.addEventListener("load", () => {
         }
     })
 })
+

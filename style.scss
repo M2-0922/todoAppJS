@@ -62,9 +62,12 @@ html, body{
                 border-radius: 6px;
                 background-color: $primary_color;
                 color: $text_color;
+                
             }
         }
     }
+
+
 
     .todos{
         margin-top: 24px;
@@ -85,6 +88,7 @@ html, body{
             background-color: $secondary_color;
             color: $text_color;
             width: 100%;
+            
         }
     }
 }
@@ -92,3 +96,4 @@ html, body{
 .delete-button{
     background-color: #090D11 !important;
 }
+
