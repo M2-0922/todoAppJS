@@ -1,94 +1,111 @@
-$primary_color: #090D11;
-$secondary_color: #272B33;
+$primary_color: #090d11;
+$secondary_color: #272b33;
 $text_color: white;
-html, body{
-    background-color: $primary_color;
+html,
+body {
+  background-color: $primary_color;
 }
 
-.container{
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .header {
+    width: 100%;
+    h1 {
+      padding: 24px;
+      color: $text_color;
+      text-align: center;
+    }
+
+    &__search {
+      width: 80%;
+      margin: 0 auto;
+      input {
+        height: 24px;
+        width: 100%;
+        background-color: $secondary_color;
+        border: none;
+        padding: 6px 12px;
+        color: $text_color;
+        border-radius: 4px;
+        &:focus {
+          outline: none !important;
+        }
+      }
+    }
+
+    &__form {
+      position: relative;
+      width: 80%;
+      margin: 0 auto;
+      input {
+        margin-top: 12px;
+        height: 24px;
+        width: 100%;
+        background-color: $secondary_color;
+        border: none;
+        padding: 6px 12px;
+        color: $text_color;
+        border-radius: 4px;
+        &:focus {
+          outline: none !important;
+        }
+      }
+      button {
+        position: absolute;
+        height: 30px;
+        width: 50px;
+        top: 15px;
+        right: -20px;
+        border: none;
+        border-radius: 6px;
+        background-color: $primary_color;
+        color: $text_color;
+      }
+    }
+  }
+
+  .todos {
+    margin-top: 24px;
+    width: 80%;
     display: flex;
     flex-direction: column;
     align-items: center;
 
-    .header{
-        width: 100%;
-        h1{
-            padding: 24px;
-            color: $text_color;
-            text-align: center;
-        }
-
-        &__search{
-            width: 80%;
-            margin: 0 auto;
-            input{
-                height: 24px;
-                width: 100%;
-                background-color: $secondary_color;
-                border: none;
-                padding: 6px 12px;
-                color: $text_color;
-                border-radius: 4px;
-                &:focus{
-                    outline: none !important; 
-                }
-            }
-        }
-
-        &__form{
-            position: relative;
-            width: 80%;
-            margin: 0 auto;
-            input{
-                margin-top: 12px;
-                height: 24px;
-                width: 100%;
-                background-color: $secondary_color;
-                border: none;
-                padding: 6px 12px;
-                color: $text_color;
-                border-radius: 4px;
-                &:focus{
-                    outline: none !important; 
-                }
-            }
-            button{
-                position: absolute;
-                height: 30px;
-                width: 50px;
-                top: 15px;
-                right: -20px;
-                border: none;
-                border-radius: 6px;
-                background-color: $primary_color;
-                color: $text_color;
-            }
-        }
+    #todos-list {
+      position: relative;
+      padding: 0;
+      margin: 0;
+      width: 100%;
     }
 
-    .todos{
-        margin-top: 24px;
-        width: 80%;
-        display: flex;
-        flex-direction: column;
-        // justify-content: center;
-        #todos-list{
-            padding: 0;
-            margin: 0;
-            width: 100%;
-        }
-        align-items: center;
-        li{
-            border-bottom: 1px solid black;
-            list-style-type: none;
-            padding: 16px 12px;
-            background-color: $secondary_color;
-            color: $text_color;
-            width: 100%;
-        }
+    li {
+      //   position: relative;
+      border-bottom: 1px solid black;
+      list-style-type: none;
+      padding: 16px 12px;
+      background-color: $secondary_color;
+      color: $text_color;
+      width: 100%;
     }
-}
-
-.delete-button{
-    background-color: #090D11 !important;
+    .checkbox {
+      position: absolute;
+      top: 15px;
+      width: 50px;
+      right: 50px;
+    }
+    .delete-button {
+      position: absolute;
+      height: 30px;
+      top: 12px;
+      width: 50px;
+      right: -20px;
+      border: none;
+      border-radius: 6px;
+      background-color: $primary_color;
+      color: $text_color;
+    }
+  }
 }

@@ -1,53 +1,59 @@
 window.addEventListener("load", () => {
-    let inputData = document.getElementById("todo-input");
-    let addButton = document.getElementById("todo-add");
-    let todoList = document.getElementById("todos-list");
-    let searchInput = document.getElementById("todo-search");
+  let inputData = document.getElementById("todo-input");
+  let addButton = document.getElementById("todo-add");
+  let todoList = document.getElementById("todos-list");
+  let searchInput = document.getElementById("todo-search");
 
-    addButton.addEventListener("click", () => {
-        let newTodo = document.createElement("li");
-        newTodo.innerHTML = inputData.value;
-        let deleteButton = document.createElement("button");
+  addButton.addEventListener("click", () => {
+    //Create New List
+    let newTodo = document.createElement("li");
+    newTodo.innerHTML = inputData.value;
 
-        deleteButton.innerText = "Delete"
-        // deleteButton.classList.add("delete-button");
- 
-        todoList.appendChild(deleteButton);
-        todoList.appendChild(newTodo);
+    //Create Delete Button
+    let deleteButton = document.createElement("button");
+    deleteButton.classList.add("delete-button");
+    deleteButton.innerText = "Delete";
 
-        inputData.value = "";
+    //Create Check Box
+    let checkbox = document.createElement("input");
+    checkbox.type = "checkbox";
+    checkbox.classList.add("checkbox");
 
-        // delete button
-        // deleteButton.addEventListener("click", () => {
-        //     alert("do you realy want to delete ?");
-        // })
+    //Event
+    todoList.appendChild(newTodo);
+    todoList.appendChild(checkbox);
+    todoList.appendChild(deleteButton);
 
-        // also add checkbox to your todo while creating.
-        
+    inputData.value = "";
 
-    })
-    
+    //Click delete button => remove todo and button
+    deleteButton.addEventListener("click", () => {
+      alert("do you realy want to delete ?");
 
-    searchInput.addEventListener("keyup", () => {
+      newTodo.remove();
+      deleteButton.remove();
+      checkbox.remove();
+    });
+  });
 
-        let searchData = searchInput.value;
+  searchInput.addEventListener("keyup", () => {
+    let searchData = searchInput.value;
+    let todos = Array.from(todoList.children);
 
-        let todos = Array.from(todoList.children);
+    // todos.forEach((kubilay) => {
+    //     if(kubilay.innerText.includes(searchData)){
+    //         kubilay.style.display = "block";
+    //     }else{
+    //         kubilay.style.display = "none";
+    //     }
+    // })
 
-        // todos.forEach((kubilay) => {
-        //     if(kubilay.innerText.includes(searchData)){
-        //         kubilay.style.display = "block";
-        //     }else{
-        //         kubilay.style.display = "none";
-        //     }
-        // })
-
-        for(let i = 0; i < todos.length; i++){
-            if(todos[i].innerText.includes(searchData)){
-                todos[i].style.display = "block";
-            }else{
-                todos[i].style.display = "none";
-            }
-        }
-    })
-})
+    for (let i = 0; i < todos.length; i++) {
+      if (todos[i].innerText.includes(searchData)) {
+        todos[i].style.display = "block";
+      } else {
+        todos[i].style.display = "none";
+      }
+    }
+  });
+});
