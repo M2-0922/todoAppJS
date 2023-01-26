@@ -6,7 +6,6 @@ window.addEventListener("load", () => {
 
     addButton.addEventListener("click", () => {
         let newTodo = document.createElement("li");
-        newTodo.innerHTML = inputData.value;
         let deleteButton = document.createElement("button");
 
         deleteButton.innerText = "Delete"
@@ -16,14 +15,18 @@ window.addEventListener("load", () => {
         todoList.appendChild(newTodo);
 
         inputData.value = "";
-
-        // delete button
-        // deleteButton.addEventListener("click", () => {
-        //     alert("do you realy want to delete ?");
-        // })
-
-        // also add checkbox to your todo while creating.
         
+
+        let valueOfNewTodo = newTodo.innerText.split("Delete")[0];
+
+        deleteButton.addEventListener("click", () => {
+            let isAccept = confirm(valueOfNewTodo + " are u sure?");
+            if(isAccept){
+                newTodo.remove();
+                deleteButton.remove();
+            }
+
+        })
 
     })
     
@@ -34,13 +37,6 @@ window.addEventListener("load", () => {
 
         let todos = Array.from(todoList.children);
 
-        // todos.forEach((kubilay) => {
-        //     if(kubilay.innerText.includes(searchData)){
-        //         kubilay.style.display = "block";
-        //     }else{
-        //         kubilay.style.display = "none";
-        //     }
-        // })
 
         for(let i = 0; i < todos.length; i++){
             if(todos[i].innerText.includes(searchData)){
