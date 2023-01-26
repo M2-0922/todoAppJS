@@ -5,22 +5,33 @@ window.addEventListener("load", () => {
     let searchInput = document.getElementById("todo-search");
 
     addButton.addEventListener("click", () => {
+        let checkbox = document.createElement('input');
+        checkbox.setAttribute('type', 'checkbox');
+
         let newTodo = document.createElement("li");
         newTodo.innerHTML = inputData.value;
+
         let deleteButton = document.createElement("button");
-
         deleteButton.innerText = "Delete"
-        // deleteButton.classList.add("delete-button");
- 
-        todoList.appendChild(deleteButton);
+        deleteButton.setAttribute('class', 'delete-button');
+        
+        newTodo.prepend(checkbox);
         todoList.appendChild(newTodo);
-
+        newTodo.appendChild(deleteButton);
+        
         inputData.value = "";
 
-        // delete button
-        // deleteButton.addEventListener("click", () => {
-        //     alert("do you realy want to delete ?");
-        // })
+        // run an event
+        deleteButton.addEventListener("click", evt => {
+            evt.preventDefault();
+            deleteTasks(deleteButton);
+        })
+
+        // delete item
+        const deleteTasks = (deleteButton) => {
+            const chosenTask = deleteButton.closest('li');
+            todoList.removeChild(chosenTask);
+        }
 
         // also add checkbox to your todo while creating.
         

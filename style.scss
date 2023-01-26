@@ -79,16 +79,28 @@ html, body{
         }
         align-items: center;
         li{
+            position: relative;
             border-bottom: 1px solid black;
             list-style-type: none;
             padding: 16px 12px;
             background-color: $secondary_color;
             color: $text_color;
             width: 100%;
+            input[type="checkbox"]{
+                margin-right: 20px;
+            }
+            .delete-button{
+                position: absolute;
+                height: 30px;
+                width: 50px;
+                top: 10px;
+                right: 5px;
+                border: none;
+                border-radius: 6px;
+                background-color: $primary_color;
+                color: $text_color;
+            }
         }
     }
 }
 
-.delete-button{
-    background-color: #090D11 !important;
-}
