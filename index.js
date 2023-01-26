@@ -4,50 +4,66 @@ window.addEventListener("load", () => {
     let todoList = document.getElementById("todos-list");
     let searchInput = document.getElementById("todo-search");
 
+    inputData.addEventListener("keyup", (event) => {
+        // console.log(event);
+        if(event.key === "Enter"){
+            addButton.click();
+            // trigger the event
+        }
+    });
+
     addButton.addEventListener("click", () => {
         let newTodo = document.createElement("li");
-        newTodo.innerHTML = inputData.value;
         let deleteButton = document.createElement("button");
+        let isCompleted = document.createElement("input");
 
-        deleteButton.innerText = "Delete"
-        // deleteButton.classList.add("delete-button");
- 
-        todoList.appendChild(deleteButton);
+        // Checkbox
+        isCompleted.type = "checkbox";
+        isCompleted.classList.add("todo-checkbox");
+
+        // Delete button
+        deleteButton.innerHTML = "Delete"
+        deleteButton.classList.add("delete-button");
+
+        // newTodo
+        newTodo.innerHTML = inputData.value;
+        newTodo.appendChild(deleteButton);
+        newTodo.insertBefore(isCompleted, newTodo.childNodes[0]);
+        // insertBefore takes 2 arguments, first the element that you want to add
+        // second argument is the location, which node you want to put before
+
+        // todoList appends
+        
         todoList.appendChild(newTodo);
 
+        // reset the input
         inputData.value = "";
 
-        // delete button
-        // deleteButton.addEventListener("click", () => {
-        //     alert("do you realy want to delete ?");
-        // })
+        let valueOfNewTodo = newTodo.innerText.split("Delete")[0];
 
-        // also add checkbox to your todo while creating.
-        
+        deleteButton.addEventListener("click", () => {
+            let isAccept = confirm(valueOfNewTodo + " will deleted, are you sure ?");
 
+            if(isAccept){
+                newTodo.remove();
+                deleteButton.remove();
+            }else{
+                console.log("Sorry");
+            }
+        });
     })
-    
 
     searchInput.addEventListener("keyup", () => {
 
         let searchData = searchInput.value;
-
         let todos = Array.from(todoList.children);
-
-        // todos.forEach((kubilay) => {
-        //     if(kubilay.innerText.includes(searchData)){
-        //         kubilay.style.display = "block";
-        //     }else{
-        //         kubilay.style.display = "none";
-        //     }
-        // })
-
-        for(let i = 0; i < todos.length; i++){
-            if(todos[i].innerText.includes(searchData)){
-                todos[i].style.display = "block";
+        todos.forEach((todo) => {
+            if(todo.innerText.includes(searchData)){
+                todo.style.display = "block";
             }else{
-                todos[i].style.display = "none";
+                todo.style.display = "none";
             }
-        }
+        })
+
     })
 })

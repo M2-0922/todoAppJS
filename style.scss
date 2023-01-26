@@ -72,13 +72,14 @@ html, body{
         display: flex;
         flex-direction: column;
         // justify-content: center;
+        align-items: center;
         #todos-list{
             padding: 0;
             margin: 0;
             width: 100%;
         }
-        align-items: center;
         li{
+            position: relative;
             border-bottom: 1px solid black;
             list-style-type: none;
             padding: 16px 12px;
@@ -90,5 +91,23 @@ html, body{
 }
 
 .delete-button{
-    background-color: #090D11 !important;
+    position: absolute;
+    top: 10px;
+    right: 8px;
+    height: 32px;
+    border-radius: 4px;
+    background-color: $primary_color;
+    color: $text_color;
+    border: none;
+    padding: 0 12px;
+    // background-color: #090D11 !important;
 }
+
+.todo-checkbox{
+    margin: 0 12px 0 4px;
+    // accent-color: $secondary_color !important;
+    // span {
+    //     background-color: #272B33 !important; 
+    // }
+}
+
