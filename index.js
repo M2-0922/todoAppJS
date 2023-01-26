@@ -16,6 +16,34 @@ window.addEventListener("load", () => {
         newTodo.innerHTML = inputData.value;
         let deleteButton = document.createElement("button");
         let checkbox = document.createElement("input");
+        let editButton = document.createElement("button");
+
+        editButton.innerText = "Edit";
+        editButton.classList.add("edit-button");
+        newTodo.appendChild(editButton);
+
+        editButton.addEventListener("click", () => {
+            let editInput = document.createElement("input");
+            editInput.classList.add("edit-input");
+            let saveButton = document.createElement("button");
+            saveButton.innerText = "Save";
+            saveButton.classList.add("save-button");
+        
+            newTodo.innerHTML = "";
+            newTodo.appendChild(editInput);
+            newTodo.appendChild(saveButton);
+        
+            saveButton.addEventListener("click", () => {
+                newTodo.innerHTML = "";
+                newTodo.appendChild(checkbox);
+
+                newTodo.appendChild(document.createTextNode(editInput.value));
+                newTodo.appendChild(deleteButton);
+                newTodo.appendChild(editButton);
+
+            });
+        });
+        
 
         checkbox.type = "checkbox";
         checkbox.classList.add("checkbox");
