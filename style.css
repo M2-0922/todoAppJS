@@ -1,5 +1,6 @@
-html, body {
-  background-color: #090D11;
+html,
+body {
+  background-color: #090d11;
 }
 
 .container {
@@ -22,7 +23,7 @@ html, body {
 .container .header__search input {
   height: 24px;
   width: 100%;
-  background-color: #272B33;
+  background-color: #272b33;
   border: none;
   padding: 6px 12px;
   color: white;
@@ -40,7 +41,7 @@ html, body {
   margin-top: 12px;
   height: 24px;
   width: 100%;
-  background-color: #272B33;
+  background-color: #272b33;
   border: none;
   padding: 6px 12px;
   color: white;
@@ -57,7 +58,7 @@ html, body {
   right: -20px;
   border: none;
   border-radius: 6px;
-  background-color: #090D11;
+  background-color: #090d11;
   color: white;
 }
 .container .todos {
@@ -72,16 +73,25 @@ html, body {
   margin: 0;
   width: 100%;
 }
-.container .todos li {
+.container .todos #todos-list li {
+  position: relative;
   border-bottom: 1px solid black;
   list-style-type: none;
   padding: 16px 12px;
-  background-color: #272B33;
+  background-color: #272b33;
   color: white;
   width: 100%;
 }
-
-.delete-button {
-  background-color: #090D11 !important;
+.container .todos #todos-list li button {
+  position: absolute;
+  height: 30px;
+  width: 50px;
+  top: 15px;
+  right: 8px;
+  border: none;
+  border-radius: 6px;
+  background-color: #090d11;
+  color: white;
 }
+
 /*# sourceMappingURL=style.css.map */
