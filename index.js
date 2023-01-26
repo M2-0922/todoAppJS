@@ -1,4 +1,19 @@
 window.addEventListener("load", () => {
+
+    // When we edit the todo, after that while we are deleting it shows the old text,
+    // please find a way to change this text to new version of text
+
+    // please put validation for inputs, that you cannot add empty todo to the list.
+    // also check while editing.
+
+    // please search: how we can hold the information in localStorage.
+    // you can use stackoverflow, google search, etc.
+    // please apply localStorage to todo Application
+
+    // once you done with those questions, please create your own branch on top of bug-fix branch
+    // branch name ex: bug-fix-kubilay
+    // push them to repo
+
     let inputData = document.getElementById("todo-input");
     let addButton = document.getElementById("todo-add");
     let todoList = document.getElementById("todos-list");
