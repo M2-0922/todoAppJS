@@ -51,7 +51,6 @@ body {
   outline: none !important;
 }
 .container .header__form button {
-  cursor: pointer;
   position: absolute;
   height: 30px;
   width: 50px;
@@ -75,7 +74,6 @@ body {
   width: 100%;
 }
 .container .todos li {
-  position: relative;
   border-bottom: 1px solid black;
   list-style-type: none;
   padding: 16px 12px;
@@ -85,22 +83,6 @@ body {
 }
 
 .delete-button {
-  position: absolute;
-  right: 3px;
-  top: 5px;
-  height: 80%;
-  background-color: #090d11;
-  border-radius: 4px;
-  color: white;
-  cursor: pointer;
-  border: none;
-  border-radius: 6px;
-  background-color: #090d11;
-  color: white;
-}
-
-.check-box {
-  position: absolute;
-  left: -25px;
+  background-color: #090d11 !important;
 }
 /*# sourceMappingURL=style.css.map */
