@@ -8,19 +8,28 @@ window.addEventListener("load", () => {
         let newTodo = document.createElement("li");
         newTodo.innerHTML = inputData.value;//このヴァリューはどこから
         let deleteButton = document.createElement("button");
-
+        let checkBox = document.createElement("INPUT");
+        checkBox.setAttribute("type","checkbox");
         deleteButton.innerText = "Delete"
         // deleteButton.classList.add("delete-button");
  
         todoList.appendChild(deleteButton);
         todoList.appendChild(newTodo);
-
+        todoList.appendChild(checkBox);
         inputData.value = "";
 
         // delete button
-        // deleteButton.addEventListener("click", () => {
-        //     alert("do you realy want to delete ?");
-        // })
+        deleteButton.addEventListener("click", () => {
+            alert("do you realy want to delete ?");
+         })
+        
+         deleteButton.addEventListener("click",() =>{
+            console.log("aleertclicked");
+            todoList.removeChild(newTodo);
+            todoList.removeChild(deleteButton);
+            todoList.removeChild(checkBox);//I couldn't change the place of checkbox
+         })
+         
 
         // also add checkbox to your todo while creating.
         
