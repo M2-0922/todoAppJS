@@ -31,7 +31,6 @@ window.addEventListener("load", () => {
         todoList.appendChild(checkBox);
         todoList.appendChild(newTodo);
 
-
         inputData.value = "";
 
         /**
@@ -56,7 +55,7 @@ window.addEventListener("load", () => {
 
             //checked
             if(targetCheckbox.checked == true){
-                if(window.confirm("do you really want to delete ?")){
+                if(window.confirm("do you really want to delete?")){
                     //remove 
                     targetLi.remove();
                     targetCheckbox.remove();
@@ -66,7 +65,7 @@ window.addEventListener("load", () => {
                 }
             //no checked
             }else{
-                if(window.confirm("You don't have it checked, really want to delete ?")){
+                if(window.confirm("You don't have it checked, really want to delete?")){
                     //remove 
                     targetLi.remove();
                     targetCheckbox.remove();
@@ -76,9 +75,6 @@ window.addEventListener("load", () => {
                 }
             }
         })
-
-
-
 
         // also add checkbox to your todo while creating.
         // buttonList.push(document.querySelectorAll(".deleteBtn"));
