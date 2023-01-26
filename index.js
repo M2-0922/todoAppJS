@@ -3,7 +3,6 @@ window.addEventListener("load", () => {
     let addButton = document.getElementById("todo-add");
     let todoList = document.getElementById("todos-list");
     let searchInput = document.getElementById("todo-search");
-    let buttonList = [];
     let count = 0;
 
     /**
@@ -75,10 +74,8 @@ window.addEventListener("load", () => {
                 }
             }
         })
-
-        // also add checkbox to your todo while creating.
-        // buttonList.push(document.querySelectorAll(".deleteBtn"));
         count ++;
+        // also add checkbox to your todo while creating.
     })
     
 
