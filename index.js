@@ -19,6 +19,9 @@ window.addEventListener("load", () => {
     let todoList = document.getElementById("todos-list");
     let searchInput = document.getElementById("todo-search");
 
+    // if (inputData == null || inputData == ""){
+    //     alert("Please enter your task.");
+
     inputData.addEventListener("keyup", (event) => {
         // console.log(event);
         if(event.key === "Enter"){
@@ -28,11 +31,14 @@ window.addEventListener("load", () => {
     });
 
     addButton.addEventListener("click", () => {
+        if (inputData.value == null || inputData.value == ""){
+            alert("Please enter your task.");
+        }else{
         let newTodo = document.createElement("li");
         let deleteButton = document.createElement("button");
         let isCompleted = document.createElement("input");
         let editButton = document.createElement("button");
-
+    
         // EditButton
         editButton.innerHTML = "Edit";
         editButton.classList.add("edit-button");
@@ -60,9 +66,9 @@ window.addEventListener("load", () => {
         // reset the input
         inputData.value = "";
 
-        let valueOfNewTodo = newTodo.innerText.split("Delete")[0];
-
+        
         deleteButton.addEventListener("click", () => {
+            valueOfNewTodo = newTodo.innerText.split("Delete")[0];
             let isAccept = confirm(valueOfNewTodo + " will deleted, are you sure ?");
 
             if(isAccept){
@@ -91,14 +97,16 @@ window.addEventListener("load", () => {
             newTodo.appendChild(saveButton);
 
             saveButton.addEventListener("click", () => {
+                if (editInput.value == null || editInput.value == ""){
+                    alert("Please enter your task.");
+                }else{
                 newTodo.innerHTML = "";
                 newTodo.appendChild(isCompleted);
 
                 newTodo.appendChild(document.createTextNode(editInput.value));
                 newTodo.appendChild(deleteButton);
                 newTodo.appendChild(editButton);
-                
-            })
+                }})
             
             editInput.addEventListener("keyup", (e) => {
                 if(e.key === "Enter"){
@@ -108,7 +116,7 @@ window.addEventListener("load", () => {
 
 
         })
-    })
+    }})
 
     searchInput.addEventListener("keyup", () => {
 
