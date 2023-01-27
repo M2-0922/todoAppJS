@@ -49,61 +49,64 @@ window.addEventListener("load", () => {
     newTodo.appendChild(deleteButton);
     newTodo.insertBefore(isCompleted, newTodo.childNodes[0]);
     newTodo.appendChild(editButton);
-    // insertBefore takes 2 arguments, first the element that you want to add
-    // second argument is the location, which node you want to put before
 
-    // todoList appends
-    todoList.appendChild(newTodo);
+    if (inputData.value) {
+      // insertBefore takes 2 arguments, first the element that you want to add
+      // second argument is the location, which node you want to put before
 
-    // reset the input
-    inputData.value = "";
+      // todoList appends
+      todoList.appendChild(newTodo);
 
-    let valueOfNewTodo = newTodo.innerText.split("Delete")[0];
+      // reset the input
+      inputData.value = "";
 
-    deleteButton.addEventListener("click", () => {
-      let newText = document.getElementById("todos-list").innerText;
-      let isAccept = confirm(newText + " will deleted, are you sure ?");
+      let valueOfNewTodo = newTodo.innerText.split("Delete")[0];
 
-      if (isAccept) {
-        newTodo.remove();
-        deleteButton.remove();
-      } else {
-        console.log("Sorry");
-      }
-    });
+      deleteButton.addEventListener("click", () => {
+        let newText = document.getElementById("todos-list").innerText;
+        let isAccept = confirm(newText + " will deleted, are you sure ?");
 
-    editButton.addEventListener("click", () => {
-      let editInput = document.createElement("input");
-      let saveButton = document.createElement("button");
-
-      // saveButton
-      saveButton.innerHTML = "Save";
-      saveButton.classList.add("save-button");
-
-      // editInput
-      editInput.classList.add("edit-input");
-      editInput.value = newTodo.innerText.split("Delete")[0];
-      // ["content", "Edit"]
-
-      newTodo.innerHTML = "";
-      newTodo.appendChild(editInput);
-      newTodo.appendChild(saveButton);
-
-      saveButton.addEventListener("click", () => {
-        newTodo.innerHTML = "";
-        newTodo.appendChild(isCompleted);
-
-        newTodo.appendChild(document.createTextNode(editInput.value));
-        newTodo.appendChild(deleteButton);
-        newTodo.appendChild(editButton);
-      });
-
-      editInput.addEventListener("keyup", (e) => {
-        if (e.key === "Enter") {
-          saveButton.click();
+        if (isAccept) {
+          newTodo.remove();
+          deleteButton.remove();
+        } else {
+          console.log("Sorry");
         }
       });
-    });
+
+      editButton.addEventListener("click", () => {
+        let editInput = document.createElement("input");
+        let saveButton = document.createElement("button");
+
+        // saveButton
+        saveButton.innerHTML = "Save";
+        saveButton.classList.add("save-button");
+
+        // editInput
+        editInput.classList.add("edit-input");
+        editInput.value = newTodo.innerText.split("Delete")[0];
+        // ["content", "Edit"]
+
+        newTodo.innerHTML = "";
+        newTodo.appendChild(editInput);
+        newTodo.appendChild(saveButton);
+
+        saveButton.addEventListener("click", () => {
+          newTodo.innerHTML = "";
+          newTodo.appendChild(isCompleted);
+
+          newTodo.appendChild(document.createTextNode(editInput.value));
+          newTodo.appendChild(deleteButton);
+          newTodo.appendChild(editButton);
+        });
+
+        editInput.addEventListener("keyup", (e) => {
+          if (e.key === "Enter" && inputData.value) {
+            saveButton.click();
+          }
+        });
+      });
+    }
   });
 
   searchInput.addEventListener("keyup", () => {
