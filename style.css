@@ -50,14 +50,28 @@ html, body {
   outline: none !important;
 }
 .container .header__form button {
+  cursor: pointer;
+}
+.container .header__form #todo-add {
   position: absolute;
   height: 30px;
   width: 50px;
   top: 15px;
-  right: -20px;
+  right: 130px;
   border: none;
   border-radius: 6px;
   background-color: #090D11;
+  color: white;
+}
+.container .header__form #todo-storage {
+  position: absolute;
+  height: 30px;
+  width: 140px;
+  top: 15px;
+  right: -20px;
+  border: none;
+  border-radius: 6px;
+  background-color: #b74444;
   color: white;
 }
 .container .todos {
@@ -92,6 +106,7 @@ html, body {
   color: white;
   border: none;
   padding: 0 12px;
+  cursor: pointer;
 }
 
 .edit-button {
@@ -104,6 +119,7 @@ html, body {
   color: white;
   border: none;
   padding: 0 12px;
+  cursor: pointer;
 }
 
 .save-button {
@@ -116,6 +132,7 @@ html, body {
   color: white;
   border: none;
   padding: 0 12px;
+  cursor: pointer;
 }
 
 .edit-input {

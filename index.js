@@ -16,6 +16,7 @@ window.addEventListener("load", () => {
 
     let inputData = document.getElementById("todo-input");
     let addButton = document.getElementById("todo-add");
+    let clearStorage = document.getElementById("todo-storage");
     let todoList = document.getElementById("todos-list");
     let searchInput = document.getElementById("todo-search");
 
@@ -45,6 +46,14 @@ window.addEventListener("load", () => {
         deleteButton.innerHTML = "Delete"
         deleteButton.classList.add("delete-button");
 
+
+        // my change - validation for blank field for add
+        if (inputData.value == "" || inputData.value == " ") {
+            alert("Title must be filled out");
+            return false;
+        }            
+        // my change - end
+
         // newTodo
         newTodo.innerHTML = inputData.value;
         newTodo.appendChild(deleteButton);
@@ -54,8 +63,27 @@ window.addEventListener("load", () => {
         // second argument is the location, which node you want to put before
 
         // todoList appends
-        
         todoList.appendChild(newTodo);
+
+
+        // my change - localStorage main
+
+        let key = 'MyKey';
+        let itemdata = {
+          'itemtitle': inputData.value
+        };
+
+        let val = JSON.stringify(itemdata);
+        window.localStorage.setItem(key, val);
+      
+        let getVal = window.localStorage.getItem(key);
+        let getData = JSON.parse(getVal);
+
+        // for check
+        console.log(getData.itemtitle);
+
+        // my change - end
+
 
         // reset the input
         inputData.value = "";
@@ -91,13 +119,23 @@ window.addEventListener("load", () => {
             newTodo.appendChild(saveButton);
 
             saveButton.addEventListener("click", () => {
+
+            // my change - validation for blank field for edit
+            if (editInput.value == "" || editInput.value == " ") {
+                alert("Title must be filled out");
+                return false;
+            }            
+            // my change - end
                 newTodo.innerHTML = "";
                 newTodo.appendChild(isCompleted);
 
                 newTodo.appendChild(document.createTextNode(editInput.value));
                 newTodo.appendChild(deleteButton);
                 newTodo.appendChild(editButton);
-                
+
+                // my change - old title popup bug fix
+                valueOfNewTodo=editInput.value;
+                // my change - end
             })
             
             editInput.addEventListener("keyup", (e) => {
@@ -109,6 +147,18 @@ window.addEventListener("load", () => {
 
         })
     })
+
+    // my change - clear localStorage and li
+
+    clearStorage.addEventListener("click", () => {
+        let clearAll = confirm("Will you delete all tasks you registered?");
+        if(clearAll){
+            window.localStorage.clear();
+            todoList.innerHTML = '';
+            return false;
+        }
+    })
+    // my change - end
 
     searchInput.addEventListener("keyup", () => {
 
