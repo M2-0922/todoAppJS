@@ -11,6 +11,7 @@ window.addEventListener("load", () => {
     // please search: how we can hold the information in localStorage.
     // you can use stackoverflow, google search, etc.
     // please apply localStorage to todo Application
+    // --> ***point3***
     
     // once you done with those questions, please create your own branch on top of bug-fix branch
     // branch name ex: bug-fix-kubilay
@@ -20,6 +21,9 @@ window.addEventListener("load", () => {
     let addButton = document.getElementById("todo-add");
     let todoList = document.getElementById("todos-list");
     let searchInput = document.getElementById("todo-search");
+
+    let listItems = [];
+    const strage = localStorage; // access to local strage object
     
     inputData.addEventListener("keyup", (event) => {
         // console.log(event);
@@ -38,6 +42,23 @@ window.addEventListener("load", () => {
         // ***point2***
         if(inputData.value != "") {
 
+            // ***point3***
+            const item = { // declare object to store each todoList's state
+                todoItem: inputData.value,
+                // isDone: false,
+                // isDelete: false 
+            };
+            listItems.push(item);
+            strage.store = JSON.stringify(listItems);
+
+            document.addEventListener("DOMContentLoaded", () => {
+                const json = strage.store; // dealare 'json' that has data is stored with store key in local strage
+                if (json === undefined) {
+                    return;
+                }
+                listItems = JSON.parse(json); // convert format from json to object(array)
+            })
+            
             // EditButton
             editButton.innerHTML = "Edit";
             editButton.classList.add("edit-button");
@@ -53,23 +74,17 @@ window.addEventListener("load", () => {
             // newTodo
             newTodo.innerHTML = inputData.value;
             newTodo.appendChild(deleteButton);
-            newTodo.insertBefore(isCompleted, newTodo.childNodes[0]);
+            newTodo.insertBefore(isCompleted, newTodo.childNodes[0]); // insertBefore takes 2 arguments, first the element that you want to add second argument is the location, which node you want to put before
             newTodo.appendChild(editButton);
-            // insertBefore takes 2 arguments, first the element that you want to add
-            // second argument is the location, which node you want to put before
 
             // todoList appends
-            
             todoList.appendChild(newTodo);
 
-            // reset the input
-            inputData.value = "";
-
+            // deleteButton event
             let valueOfNewTodo = newTodo.innerText.split("Delete")[0];
-
             deleteButton.addEventListener("click", () => {
                 let isAccept = confirm(valueOfNewTodo + " will deleted, are you sure ?");
-
+                
                 if(isAccept){
                     newTodo.remove();
                     deleteButton.remove();
@@ -77,23 +92,23 @@ window.addEventListener("load", () => {
                     console.log("Sorry");
                 }
             });
-
+            
             // editButton event
             editButton.addEventListener("click", () => {
                 let editInput = document.createElement("input");
                 let saveButton = document.createElement("button");
-
+                
                 // create saveButton
                 saveButton.innerHTML = "Save";
                 saveButton.classList.add("save-button");
-
+                
                 // create editInput
                 editInput.classList.add("edit-input");
                 editInput.value = newTodo.innerText.split("Delete")[0]; // ["content", "Edit"]
                 newTodo.innerHTML = "";
                 newTodo.appendChild(editInput);
                 newTodo.appendChild(saveButton);
-
+                
                 // saveButton event
                 saveButton.addEventListener("click", () => {
                     // ***point2***
@@ -119,9 +134,11 @@ window.addEventListener("load", () => {
                         saveButton.click();
                     }
                 })
-
-
             })
+            
+            // reset the input
+            inputData.value = "";
+            
         } else {
             alert("Please input something.");
         }
